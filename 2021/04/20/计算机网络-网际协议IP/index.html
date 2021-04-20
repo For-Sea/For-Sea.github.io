@@ -20,20 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="​    简单列举了计算机五层网络结构中，除物理层外其他层的常用协议。">
+  <meta name="description" content="主要了解关于IP地址的东西。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络-各层常见协议">
-<meta property="og:url" content="http://example.com/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%90%84%E5%B1%82%E5%B8%B8%E8%A7%81%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:title" content="计算机网络-网际协议IP">
+<meta property="og:url" content="http://example.com/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/index.html">
 <meta property="og:site_name" content="For-Sea">
-<meta property="og:description" content="​    简单列举了计算机五层网络结构中，除物理层外其他层的常用协议。">
+<meta property="og:description" content="主要了解关于IP地址的东西。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-20T06:05:25.000Z">
-<meta property="article:modified_time" content="2021-04-20T06:05:54.502Z">
+<meta property="og:image" content="https://i.loli.net/2021/04/20/mxeEYJ53bTd6rn4.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/20/XlyjpaUCRDFzixE.png">
+<meta property="article:published_time" content="2021-04-20T08:52:33.000Z">
+<meta property="article:modified_time" content="2021-04-20T08:53:43.203Z">
 <meta property="article:author" content="For-Sea">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/04/20/mxeEYJ53bTd6rn4.png">
 
-<link rel="canonical" href="http://example.com/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%90%84%E5%B1%82%E5%B8%B8%E8%A7%81%E5%8D%8F%E8%AE%AE/">
+<link rel="canonical" href="http://example.com/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/">
 
 
 <script id="page-configurations">
@@ -46,7 +49,7 @@
   };
 </script>
 
-  <title>计算机网络-各层常见协议 | For-Sea</title>
+  <title>计算机网络-网际协议IP | For-Sea</title>
   
 
 
@@ -171,7 +174,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%90%84%E5%B1%82%E5%B8%B8%E8%A7%81%E5%8D%8F%E8%AE%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -184,7 +187,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          计算机网络-各层常见协议
+          计算机网络-网际协议IP
         </h1>
 
         <div class="post-meta">
@@ -195,7 +198,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-20 14:05:25 / 修改时间：14:05:54" itemprop="dateCreated datePublished" datetime="2021-04-20T14:05:25+08:00">2021-04-20</time>
+              <time title="创建时间：2021-04-20 16:52:33 / 修改时间：16:53:43" itemprop="dateCreated datePublished" datetime="2021-04-20T16:52:33+08:00">2021-04-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,135 +221,99 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>​    简单列举了计算机五层网络结构中，除物理层外其他层的常用协议。</p>
+        <p>主要了解关于IP地址的东西。</p>
 <span id="more"></span>
 
-<h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1><table>
+<h1 id="什么是网际协议IP？"><a href="#什么是网际协议IP？" class="headerlink" title="什么是网际协议IP？"></a>什么是网际协议IP？</h1><p>网际协议IP（Internet Protocol）非常重要，它位于网络层中，实际上，虽然网络层有其他协议，但基本都是为了协助IP协议工作而存在的。</p>
+<p>IP协议向上可以给运输层中的TCP、UDP协议提供所需要的信息，向下可以给数据链路层传递数据包。</p>
+<p>IP协议包括三方面内容：IP编址、分组封装格式、分组转发规则。但这里只谈谈其IP编制的相关内容。</p>
+<h1 id="IP地址的分类"><a href="#IP地址的分类" class="headerlink" title="IP地址的分类"></a>IP地址的分类</h1><p><strong>什么是IP地址？</strong></p>
+<p>想象一台计算机就是一个人，这台计算机的MAC地址（硬件地址）就是它的身份证号，它的IP地址就是它的居住地址（门牌号）。计算机与计算机之间就是通过确认IP地址来将数据传输给指定的目标的。</p>
+<p><strong>IP地址分为五类。</strong></p>
+<p>典型的IP地址比如192.168.1.100或者10.102.0.1。</p>
+<p>其实机器所见的IP地址应该是二进制的，我们所见的IP地址是为了便于人记忆而将二进制转换成了十进制，称为点分十进制记法。二进制IP地址一共32位，每8为插入一个空格（十进制用点表示）。</p>
+<p>IP地址分类如下：</p>
+<p><img src="https://i.loli.net/2021/04/20/mxeEYJ53bTd6rn4.png" alt="image.png"></p>
+<table>
 <thead>
 <tr>
-<th>协议名称</th>
-<th>协议作用</th>
-<th>备注</th>
+<th>类</th>
+<th>地址范围</th>
+<th>网络数</th>
+<th>主机数</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>FTP（File Transfer Protocol）：文件传送协议</td>
-<td>使处于异构网络的计算机相互间能够传送文件</td>
-<td>端口号：21</td>
+<td>A</td>
+<td>0.0.0.0 ~ 127.255.255.255</td>
+<td>2^7-2</td>
+<td>2^24-2</td>
 </tr>
 <tr>
-<td>TFTP（Trivial File Transfer Protocol）：简单文件传送协议</td>
-<td>小且易于实现的文件传送协议</td>
-<td>端口号：69</td>
+<td>B</td>
+<td>128.0.0.0 ~ 191.255.255.255</td>
+<td>2^14-1</td>
+<td>2^16-2</td>
 </tr>
 <tr>
-<td>TELNET：远程终端协议</td>
-<td>控制远程终端</td>
-<td>端口号：23</td>
+<td>C</td>
+<td>192.0.0.0 ~ 223.255.255.255</td>
+<td>2^21-1</td>
+<td>2^8-2</td>
 </tr>
 <tr>
-<td>HTTP（Hypertext Transfer Protocol）：超文本传送协议</td>
-<td>定义了浏览器如何向服务器请求资源，服务器如何将资源传送给浏览器</td>
-<td>端口号：80</td>
+<td>D</td>
+<td>224.0.0.0 ~ 239.255.255.255</td>
+<td>/</td>
+<td>/</td>
 </tr>
 <tr>
-<td>SMTP（Simple Mail Transfer Protocol）：简单邮件传送协议</td>
-<td>发送邮件</td>
-<td>端口号：25</td>
-</tr>
-<tr>
-<td>POP3（Post Office Protocol）：邮局协议</td>
-<td>读取邮件</td>
-<td></td>
-</tr>
-<tr>
-<td>MIME（Multipurpose Internet Mail Extensions）：通用互联网邮件扩充</td>
-<td>不是协议，属于SMTP协议的补丁</td>
-<td></td>
-</tr>
-<tr>
-<td>DHCP（Dynamic Host Configuration Protocol）：动态主机配置协议</td>
-<td>用以动态地给主机分配IP地址</td>
-<td></td>
-</tr>
-<tr>
-<td>SNMP（Simple Network Management Protocol）：简单网络管理协议</td>
-<td>管理网络</td>
-<td>端口号：161、162</td>
+<td>E</td>
+<td>240.0.0.0 ~ 255.255.255</td>
+<td>/</td>
+<td>/</td>
 </tr>
 </tbody></table>
-<h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><table>
-<thead>
-<tr>
-<th>协议名称</th>
-<th>协议作用</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>TCP（Transmission Control Protocol）：传输控制协议</td>
-<td>提供可靠的、面向连接的传输</td>
-<td></td>
-</tr>
-<tr>
-<td>UDP（User Datagram Protocol）：用户数据报协议</td>
-<td>提供尽最大努力的、无连接的传输</td>
-<td></td>
-</tr>
-</tbody></table>
-<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><table>
-<thead>
-<tr>
-<th>协议名称</th>
-<th>协议作用</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>IP（Internet Protocol）：网际协议</td>
-<td>负责IP编址、数据报封装、分组转发</td>
-<td></td>
-</tr>
-<tr>
-<td>ICMP（Internet Control Message Protocol）：网际控制报文协议</td>
-<td>传递控制消息</td>
-<td></td>
-</tr>
-<tr>
-<td>IGMP（Internet Group Menagement Protocol）：网际组管理协议</td>
-<td>组播协议</td>
-<td></td>
-</tr>
-<tr>
-<td>ARP（Address Resolution Protocol）：地址解析协议</td>
-<td>IP地址转换为MAC地址</td>
-<td></td>
-</tr>
-<tr>
-<td>RARP（Reverse Address Resolution Protocol）：逆地址解析协议</td>
-<td>MAC地址转换为IP地址</td>
-<td>已淘汰</td>
-</tr>
-</tbody></table>
-<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><table>
-<thead>
-<tr>
-<th>协议名称</th>
-<th>协议作用</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PPP（Point-to-Point Protocol）：点对点协议</td>
-<td>计算机用户与网络服务提供商（ISP）进行通信时所使用的协议</td>
-<td></td>
-</tr>
-<tr>
-<td>CSMA/CD：载波监听多点接入/碰撞检测</td>
-<td>广播型信道中采用一种随机访问技术的竞争型访问方法</td>
-<td></td>
-</tr>
-</tbody></table>
+<p>其中还有一些特殊的IP地址不能用作网络号或主机号，而需要保留起来作其他用途：</p>
+<ul>
+<li>网络号中0和127不作为网络号：0.0.0.0指代本主机，127.x.x.x用于对本地软件进行环回测试。</li>
+<li>网络号为全0，主机号不为全0：指代本网络的某台主机。</li>
+<li>网络号为全1，主机号为全1：在本类网络进行广播</li>
+<li>主机号为全0：指代本网络所有主机，如192.168.0.0。</li>
+<li>主机号为全1：对本网络的所有主机进行广播。</li>
+</ul>
+<h1 id="划分子网与构造超网"><a href="#划分子网与构造超网" class="headerlink" title="划分子网与构造超网"></a>划分子网与构造超网</h1><p><strong>什么是划分子网？</strong></p>
+<p>之前所说的IP地址是两级IP地址，只包括网络号和主机号，所能容纳的计算机数量少，且多有不便，于是人们将二级IP地址改造为三级IP地址，向其中加入了“子网”的概念。“子网”就是将主机号划分为子网号与主机号，</p>
+<p><img src="https://i.loli.net/2021/04/20/XlyjpaUCRDFzixE.png" alt="image.png"></p>
+<p><strong>如何划分子网？</strong></p>
+<p>划分子网需要使用“子网掩码”，子网掩码也是32位的，一个IP地址如果使用了子网掩码就表明这个IP地址划分了子网。</p>
+<p>子网掩码一般形如“255.255.255.128”，255表示该字段8个位上都是1，255所对应的IP地址的字段就是网络号字段。</p>
+<p>IP地址与子网掩码相与可以得出实际的网络地址。</p>
+<p>关于划分子网有一篇不错的博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dyyay521/article/details/94381876?ops_request_misc=%7B%22request_id%22:%22161890720116780366534438%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=161890720116780366534438&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-94381876.first_rank_v2_pc_rank_v29&utm_term=%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91&spm=1018.2226.3001.4187">计算机网络——子网划分（内含习题讲解）</a></p>
+<p><strong>什么是构造超网？</strong></p>
+<p>有了划分子网还不够，人们对于IP地址的划分还有更高的需求，于是诞生了构造超网。</p>
+<p>构造超网是一种无分类IP地址，其不管哪一类IP地址，只将IP地址划分为网络前缀和主机号。</p>
+<p>形式如：128.14.35.7/20，表示前20位是网络前缀，之后的都是主机位。</p>
+<p><strong>如何构造超网？</strong></p>
+<p>关于构造超网可以参考这篇博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yexudengzhidao/article/details/94578153?ops_request_misc=%7B%22request_id%22:%22161890836816780357273753%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=161890836816780357273753&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-1-94578153.first_rank_v2_pc_rank_v29&utm_term=%E6%9E%84%E9%80%A0%E8%B6%85%E7%BD%91&spm=1018.2226.3001.4187">计算机网络之构造超网（无分类编址）</a></p>
+<h1 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h1><p><strong>什么是IPv6？（百度百科）</strong></p>
+<p>IPv6是英文“Internet Protocol Version 6”（互联网协议第6版）的缩写，是互联网工程任务组（IETF）设计的用于替代IPv4的下一代IP协议，其地址数量号称可以为全世界的每一粒沙子编上一个地址 。</p>
+<p>由于IPv4最大的问题在于网络地址资源不足，严重制约了互联网的应用和发展。IPv6的使用，不仅能解决网络地址资源数量的问题，而且也解决了多种接入设备连入互联网的障碍 。</p>
+<p>互联网数字分配机构（IANA）在2016年已向国际互联网工程任务组（IETF）提出建议，要求新制定的国际互联网标准只支持IPv6，不再兼容IPv4。</p>
+<p><strong>IPv6地址（百度百科）</strong></p>
+<p>IPv6的地址长度为128位，是IPv4地址长度的4倍。于是IPv4点分十进制格式不再适用，采用十六进制表示。IPv6有3种表示方法。</p>
+<p>一、冒分十六进制表示法</p>
+<p>　　格式为X:X:X:X:X:X:X:X，其中每个X表示地址中的16b，以十六进制表示，例如：</p>
+<p>　　ABCD:EF01:2345:6789:ABCD:EF01:2345:6789</p>
+<p>　　这种表示法中，每个X的前导0是可以省略的，例如：</p>
+<p>　　2001:0DB8:0000:0023:0008:0800:200C:417A→ 2001:DB8:0:23:8:800:200C:417A</p>
+<p>二、0位压缩表示法</p>
+<p>　　在某些情况下，一个IPv6地址中间可能包含很长的一段0，可以把连续的一段0压缩为“::”。但为保证地址解析的唯一性，地址中”::”只能出现一次，例如：</p>
+<p>　　FF01:0:0:0:0:0:0:1101 → FF01::1101</p>
+<p>　　0:0:0:0:0:0:0:1 → ::1</p>
+<p>　　0:0:0:0:0:0:0:0 → ::</p>
+<p>三、内嵌IPv4地址表示法</p>
+<p>　　为了实现IPv4-IPv6互通，IPv4地址会嵌入IPv6地址中，此时地址常表示为：X:X:X:X:X:X:d.d.d.d，前96b采用冒分十六进制表示，而最后32b地址则使用IPv4的点分十进制表示，例如::192.168.0.1与::FFFF:192.168.0.1就是两个典型的例子，注意在前96b中，压缩0位的方法依旧适用 。</p>
 
     </div>
 
@@ -365,13 +332,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/20/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E4%B8%8ETCP/" rel="prev" title="计算机网络-UDP与TCP">
+      <i class="fa fa-chevron-left"></i> 计算机网络-UDP与TCP
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%8C%83%E5%BC%8F/" rel="next" title="数据库-范式">
-      数据库-范式 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -430,7 +394,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">1.</span> <span class="nav-text">应用层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E8%BE%93%E5%B1%82"><span class="nav-number">2.</span> <span class="nav-text">运输层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-number">3.</span> <span class="nav-text">网络层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">4.</span> <span class="nav-text">数据链路层</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是网际协议IP？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">IP地址的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E4%B8%8E%E6%9E%84%E9%80%A0%E8%B6%85%E7%BD%91"><span class="nav-number">3.</span> <span class="nav-text">划分子网与构造超网</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPv6"><span class="nav-number">4.</span> <span class="nav-text">IPv6</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
