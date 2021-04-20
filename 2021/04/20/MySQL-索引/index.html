@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="​    简单列举了计算机五层网络结构中，除物理层外其他层的常用协议。">
+  <meta name="description" content="MySQL的索引机制可以帮助我们提高数据的访问速度。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络-各层常见协议">
-<meta property="og:url" content="http://example.com/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%90%84%E5%B1%82%E5%B8%B8%E8%A7%81%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:title" content="MySQL-索引">
+<meta property="og:url" content="http://example.com/2021/04/20/MySQL-%E7%B4%A2%E5%BC%95/index.html">
 <meta property="og:site_name" content="For-Sea">
-<meta property="og:description" content="​    简单列举了计算机五层网络结构中，除物理层外其他层的常用协议。">
+<meta property="og:description" content="MySQL的索引机制可以帮助我们提高数据的访问速度。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-20T06:05:25.000Z">
-<meta property="article:modified_time" content="2021-04-20T06:05:54.502Z">
+<meta property="article:published_time" content="2021-04-20T07:33:54.000Z">
+<meta property="article:modified_time" content="2021-04-20T07:35:07.805Z">
 <meta property="article:author" content="For-Sea">
-<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%90%84%E5%B1%82%E5%B8%B8%E8%A7%81%E5%8D%8F%E8%AE%AE/">
+<link rel="canonical" href="http://example.com/2021/04/20/MySQL-%E7%B4%A2%E5%BC%95/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>计算机网络-各层常见协议 | For-Sea</title>
+  <title>MySQL-索引 | For-Sea</title>
   
 
 
@@ -171,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%90%84%E5%B1%82%E5%B8%B8%E8%A7%81%E5%8D%8F%E8%AE%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/MySQL-%E7%B4%A2%E5%BC%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -184,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          计算机网络-各层常见协议
+          MySQL-索引
         </h1>
 
         <div class="post-meta">
@@ -195,7 +196,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-20 14:05:25 / 修改时间：14:05:54" itemprop="dateCreated datePublished" datetime="2021-04-20T14:05:25+08:00">2021-04-20</time>
+              <time title="创建时间：2021-04-20 15:33:54 / 修改时间：15:35:07" itemprop="dateCreated datePublished" datetime="2021-04-20T15:33:54+08:00">2021-04-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,7 +204,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -218,135 +219,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>​    简单列举了计算机五层网络结构中，除物理层外其他层的常用协议。</p>
+        <p>MySQL的索引机制可以帮助我们提高数据的访问速度。</p>
 <span id="more"></span>
 
-<h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1><table>
+<h1 id="什么是索引？"><a href="#什么是索引？" class="headerlink" title="什么是索引？"></a>什么是索引？</h1><p>索引是帮助MySQL高效获取数据的数据结构，可以提高MySQL数据库查询速度。</p>
+<h1 id="索引的分类"><a href="#索引的分类" class="headerlink" title="索引的分类"></a>索引的分类</h1><table>
 <thead>
 <tr>
-<th>协议名称</th>
-<th>协议作用</th>
-<th>备注</th>
+<th>索引类型</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>FTP（File Transfer Protocol）：文件传送协议</td>
-<td>使处于异构网络的计算机相互间能够传送文件</td>
-<td>端口号：21</td>
+<td>主键索引</td>
+<td>索引列中的值必须是唯一的，且不允许有空值。</td>
 </tr>
 <tr>
-<td>TFTP（Trivial File Transfer Protocol）：简单文件传送协议</td>
-<td>小且易于实现的文件传送协议</td>
-<td>端口号：69</td>
+<td>普通索引</td>
+<td>基本索引类型，没什么限制，允许索引出现重复值和空值。</td>
 </tr>
 <tr>
-<td>TELNET：远程终端协议</td>
-<td>控制远程终端</td>
-<td>端口号：23</td>
+<td>唯一索引</td>
+<td>索引列中的值必须是唯一的，但是允许有空值。</td>
 </tr>
 <tr>
-<td>HTTP（Hypertext Transfer Protocol）：超文本传送协议</td>
-<td>定义了浏览器如何向服务器请求资源，服务器如何将资源传送给浏览器</td>
-<td>端口号：80</td>
+<td>全文索引</td>
+<td>只能在文本类型char,varchar,text类型字段上创建全文索引。</td>
 </tr>
 <tr>
-<td>SMTP（Simple Mail Transfer Protocol）：简单邮件传送协议</td>
-<td>发送邮件</td>
-<td>端口号：25</td>
+<td>空间索引</td>
+<td>MySQL在5.7之后的版本支持了空间索引，而且支持OpenGIS几何数据模型。MySQL在空间索引这方面遵循OpenGIS几何数据模型规则。</td>
 </tr>
 <tr>
-<td>POP3（Post Office Protocol）：邮局协议</td>
-<td>读取邮件</td>
-<td></td>
+<td>前缀索引</td>
+<td>在文本类型如char,varchar,text类列上创建索引时，可以指定索引列的长度，但是数值类型不能指定。</td>
 </tr>
 <tr>
-<td>MIME（Multipurpose Internet Mail Extensions）：通用互联网邮件扩充</td>
-<td>不是协议，属于SMTP协议的补丁</td>
-<td></td>
+<td>单列索引</td>
+<td>索引列为一列</td>
 </tr>
 <tr>
-<td>DHCP（Dynamic Host Configuration Protocol）：动态主机配置协议</td>
-<td>用以动态地给主机分配IP地址</td>
-<td></td>
-</tr>
-<tr>
-<td>SNMP（Simple Network Management Protocol）：简单网络管理协议</td>
-<td>管理网络</td>
-<td>端口号：161、162</td>
+<td>组合索引</td>
+<td>索引列为多列</td>
 </tr>
 </tbody></table>
-<h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><table>
-<thead>
-<tr>
-<th>协议名称</th>
-<th>协议作用</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>TCP（Transmission Control Protocol）：传输控制协议</td>
-<td>提供可靠的、面向连接的传输</td>
-<td></td>
-</tr>
-<tr>
-<td>UDP（User Datagram Protocol）：用户数据报协议</td>
-<td>提供尽最大努力的、无连接的传输</td>
-<td></td>
-</tr>
-</tbody></table>
-<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><table>
-<thead>
-<tr>
-<th>协议名称</th>
-<th>协议作用</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>IP（Internet Protocol）：网际协议</td>
-<td>负责IP编址、数据报封装、分组转发</td>
-<td></td>
-</tr>
-<tr>
-<td>ICMP（Internet Control Message Protocol）：网际控制报文协议</td>
-<td>传递控制消息</td>
-<td></td>
-</tr>
-<tr>
-<td>IGMP（Internet Group Menagement Protocol）：网际组管理协议</td>
-<td>组播协议</td>
-<td></td>
-</tr>
-<tr>
-<td>ARP（Address Resolution Protocol）：地址解析协议</td>
-<td>IP地址转换为MAC地址</td>
-<td></td>
-</tr>
-<tr>
-<td>RARP（Reverse Address Resolution Protocol）：逆地址解析协议</td>
-<td>MAC地址转换为IP地址</td>
-<td>已淘汰</td>
-</tr>
-</tbody></table>
-<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><table>
-<thead>
-<tr>
-<th>协议名称</th>
-<th>协议作用</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PPP（Point-to-Point Protocol）：点对点协议</td>
-<td>计算机用户与网络服务提供商（ISP）进行通信时所使用的协议</td>
-<td></td>
-</tr>
-<tr>
-<td>CSMA/CD：载波监听多点接入/碰撞检测</td>
-<td>广播型信道中采用一种随机访问技术的竞争型访问方法</td>
-<td></td>
-</tr>
-</tbody></table>
+<h1 id="索引的数据结构"><a href="#索引的数据结构" class="headerlink" title="索引的数据结构"></a>索引的数据结构</h1><h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p>存储键值对，key中存储索引列，value中存储行记录或磁盘地址。</p>
+<p>哈希表在等值查找时效率高，但在范围查找时仍需要全表查找，因此哈希表不适合作为经常需要查找或范围查找的数据库索引使用。</p>
+<h2 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h2><p>对于每个树节点，左子节点＜树节点＜右子节点。</p>
+<p>每次查找可以折半，减少了IO次数。</p>
+<p>但是在索引已经排好序的情况下，如果选择第一个或最后一个索引为根节点，则可能会出现只有一个方向的树，二叉搜索树就失去了优势。</p>
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>左右子树的层级只相差1以内的二叉搜索树，在创建时就已经处于平衡状态，之后插入删除元素时，会通过左旋或右旋保持二叉树的平衡。</p>
+<p>但是纯粹的二叉树在进行巨大量级数据查找时，要从根节点一层层向下查找，一次查找就需要进行一次IO操作，在查找的树范围很大时，二叉树的查询效率就比较低下了。</p>
+<h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2><p>B树是一种改造的二叉树，二叉树的缺点是查询大量级数据时需要进行多次IO操作，要减少IO操作，就需要降低树的高度。</p>
+<p>如何降低树的高度？方法是让每个树节点存储多个元素，这样就能使树由高瘦变为矮胖，由二叉树变为多叉树。</p>
+<p>B树仍然有些缺点，一是节点的大小是固定的，如果索引使用了复合索引，则每个节点能存储的元素就变少了，树就不能变矮胖，IO操作会变多；二是当进行范围查询时，需要反复从根节点开始向下查询，效率很低。</p>
+<h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p>B+树在B树的基础上再次做了改进，在B树中，每个节点都存储了数据，但在B+树中，只有叶子节点会存储数据，非叶子节点只存储键值，且叶子节点之间使用双向指针连接，也就是在最底层形成了一个双向有序列表。</p>
+<p>B+树的结构一是可以让非叶子节点存储更多的元素，使树更加矮胖，减少IO次数；二是进行范围查询时，只需要沿着双向有序列表向后查询即可，不用反复从根节点开始查找。</p>
+<p>目前MySQL的索引就使用了B+树的数据结构。</p>
+<h2 id="索引的使用"><a href="#索引的使用" class="headerlink" title="索引的使用"></a>索引的使用</h2><h3 id="MyIsam中的索引"><a href="#MyIsam中的索引" class="headerlink" title="MyIsam中的索引"></a>MyIsam中的索引</h3><p>分为主键索引与普通索引（辅助索引），主键索引使用主键作为索引，叶子节点中存储的数据为行数据的磁盘地址；辅助索引与主键索引的唯一区别为：辅助索引中的键值可以重复，其他没有任何区别。</p>
+<h3 id="InnoDB索引"><a href="#InnoDB索引" class="headerlink" title="InnoDB索引"></a>InnoDB索引</h3><p>主键索引又称为聚簇索引，除了聚簇索引外的全部索引称为辅助索引。</p>
+<p>主键索引：叶子节点存储的是行数据。</p>
+<p>辅助索引：叶子节点存储的是主键的值。使用辅助索引时，查到主键值后会继续使用该主键到主键索引的B+树中查询相应行数据，这种现象称为回表查询。</p>
+<p>组合索引：以多个字段组合起来作为索引，遵循最左匹配原则，即以组合起来的字段中的最左字段作为索引在B+树里向下查询，当最左字段相同则以下一个字段为准向下查询。</p>
+<p>覆盖索引：出现在组合索引中的一种现象。因为组合索引中已经包含了一些字段，因此，如果要查询的字段被包含在组合索引中，则不用再回表查询。</p>
+<h1 id="索引优化建议"><a href="#索引优化建议" class="headerlink" title="索引优化建议"></a>索引优化建议</h1><p>1、避免回表。因为回表查询需要再到B+树中进行一次查询过程，明显会降低查询效率。避免方法是使用组合索引，将频繁查询的字段作为索引组合起来，这样当查询到目标字段时就可以直接获取（覆盖索引），而不需要进行回表。</p>
+<p>2、创建组合索引。应该把频繁使用的列、区分度高的列放在前面，因为存在最左匹配原则。</p>
 
     </div>
 
@@ -356,7 +293,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
           </div>
 
         
@@ -365,12 +303,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/20/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2021/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93-%E4%BA%8B%E5%8A%A1/" rel="prev" title="数据库-事务">
+      <i class="fa fa-chevron-left"></i> 数据库-事务
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%8C%83%E5%BC%8F/" rel="next" title="数据库-范式">
-      数据库-范式 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/04/20/MySQL-%E5%BC%95%E6%93%8E/" rel="next" title="MySQL-引擎">
+      MySQL-引擎 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -430,7 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">1.</span> <span class="nav-text">应用层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E8%BE%93%E5%B1%82"><span class="nav-number">2.</span> <span class="nav-text">运输层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-number">3.</span> <span class="nav-text">网络层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">4.</span> <span class="nav-text">数据链路层</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是索引？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">索引的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">索引的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">哈希表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="nav-number">3.2.</span> <span class="nav-text">二叉搜索树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">3.3.</span> <span class="nav-text">平衡二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A0%91"><span class="nav-number">3.4.</span> <span class="nav-text">B树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-%E6%A0%91"><span class="nav-number">3.5.</span> <span class="nav-text">B+树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.6.</span> <span class="nav-text">索引的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyIsam%E4%B8%AD%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="nav-number">3.6.1.</span> <span class="nav-text">MyIsam中的索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InnoDB%E7%B4%A2%E5%BC%95"><span class="nav-number">3.6.2.</span> <span class="nav-text">InnoDB索引</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96%E5%BB%BA%E8%AE%AE"><span class="nav-number">4.</span> <span class="nav-text">索引优化建议</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
