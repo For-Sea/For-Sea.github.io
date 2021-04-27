@@ -20,20 +20,24 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="范式是数据库在设计时所遵守的规范。">
+  <meta name="description" content="简单介绍一下JVM中的常用垃圾回收器。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库-范式">
-<meta property="og:url" content="http://example.com/2021/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%8C%83%E5%BC%8F/index.html">
+<meta property="og:title" content="Java-JVM之垃圾收集器">
+<meta property="og:url" content="http://example.com/2021/04/27/Java-JVM%E4%B9%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/index.html">
 <meta property="og:site_name" content="For-Sea">
-<meta property="og:description" content="范式是数据库在设计时所遵守的规范。">
+<meta property="og:description" content="简单介绍一下JVM中的常用垃圾回收器。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-20T07:30:54.000Z">
-<meta property="article:modified_time" content="2021-04-20T07:31:57.545Z">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/gunSxeAaIH4UVLZ.png">
+<meta property="article:published_time" content="2021-04-27T10:26:44.000Z">
+<meta property="article:modified_time" content="2021-04-27T10:28:33.060Z">
 <meta property="article:author" content="For-Sea">
-<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="GC">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/04/27/gunSxeAaIH4UVLZ.png">
 
-<link rel="canonical" href="http://example.com/2021/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%8C%83%E5%BC%8F/">
+<link rel="canonical" href="http://example.com/2021/04/27/Java-JVM%E4%B9%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
 
 
 <script id="page-configurations">
@@ -46,7 +50,7 @@
   };
 </script>
 
-  <title>数据库-范式 | For-Sea</title>
+  <title>Java-JVM之垃圾收集器 | For-Sea</title>
   
 
 
@@ -171,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%8C%83%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/27/Java-JVM%E4%B9%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -184,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数据库-范式
+          Java-JVM之垃圾收集器
         </h1>
 
         <div class="post-meta">
@@ -195,7 +199,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-20 15:30:54 / 修改时间：15:31:57" itemprop="dateCreated datePublished" datetime="2021-04-20T15:30:54+08:00">2021-04-20</time>
+              <time title="创建时间：2021-04-27 18:26:44 / 修改时间：18:28:33" itemprop="dateCreated datePublished" datetime="2021-04-27T18:26:44+08:00">2021-04-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,7 +207,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                  <a href="/categories/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
                 </span>
             </span>
 
@@ -218,13 +222,123 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>范式是数据库在设计时所遵守的规范。</p>
+        <p>简单介绍一下JVM中的常用垃圾回收器。</p>
 <span id="more"></span>
 
-<p>范式包括第一范式、第二范式、第三范式，再往后其实还有第四范式跟第五范式，但是实际上用到第三范式就差不多了。后一级的范式默认涵盖了前一级的范式。</p>
-<p>第一范式：表中所有字段不可再分。即表中不能再有表。</p>
-<p>第二范式：表中每个字段都必须由完整的主键确定，而不能由部分主键确定（主要针对联合主键）。即一张表只描述一件事，目的是确保每个字段对主键的完全依赖。</p>
-<p>第三范式：表中的每个字段只能直接依赖于主键，不能间接依赖于主键。即一张表中只能包含另一张表的主键，而不能包含另一张表的其他信息。</p>
+<h1 id="回收器概览"><a href="#回收器概览" class="headerlink" title="回收器概览"></a>回收器概览</h1><table>
+<thead>
+<tr>
+<th>回收器</th>
+<th>分代</th>
+<th>特点</th>
+<th>适用场景</th>
+<th>配合使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Serial</td>
+<td>新生代</td>
+<td>单线程需要STW(Stop-The-World)</td>
+<td>Client模式</td>
+<td>Serial Old、CMS</td>
+</tr>
+<tr>
+<td>ParNew</td>
+<td>新生代</td>
+<td>Serial的多线程版本需要STW减少了STW时间，提升应用响应速度</td>
+<td>Server模式</td>
+<td>Serial Old、CMS</td>
+</tr>
+<tr>
+<td>Parallel Scavenge</td>
+<td>新生代</td>
+<td>多线程使用复制算法注重吞吐量</td>
+<td>适合做后台运算等吞吐量大、不需要太多交互的任务</td>
+<td>Serial Old、Parallel Old</td>
+</tr>
+<tr>
+<td>Serial Old</td>
+<td>老年代</td>
+<td>单线程需要STW</td>
+<td>主要在Client模式下搭配Serial回收器使用，也可以在Server模式下作为CMS的后备预案。</td>
+<td>Serial、ParNew、Parallel Scavenge</td>
+</tr>
+<tr>
+<td>Parallel Old</td>
+<td>老年代</td>
+<td>Parallel Scavenge的多线程版本使用标记整理法注重吞吐量</td>
+<td>适合吞吐量大的任务</td>
+<td>Parallel Scavenge</td>
+</tr>
+<tr>
+<td>CMS</td>
+<td>老年代</td>
+<td>使用标记清除法注重最短STW时间总体上看，可以认为回收线程与用户线程是并发执行的</td>
+<td>注重服务响应速度</td>
+<td>Serial、ParNew</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>/</td>
+<td>使用标记整理法能与应用程序线程并发执行能建立可预测的停顿模型，能在用户指定的时间进行STW。</td>
+<td>面向服务端</td>
+<td>/</td>
+</tr>
+</tbody></table>
+<p>Serail与ParNew共用了相当多代码，CMS与前两者共用同一套代码框架；Parallel Scavenge与G1则没有使用与它们相同的GC收集器代码框架，而是后来另起炉灶。</p>
+<p>从JDK 9开始，G1成为了默认的垃圾回收器。</p>
+<p><img src="https://i.loli.net/2021/04/27/gunSxeAaIH4UVLZ.png" alt="image.png"></p>
+<h1 id="CMS与G1"><a href="#CMS与G1" class="headerlink" title="CMS与G1"></a>CMS与G1</h1><h2 id="CMS执行过程"><a href="#CMS执行过程" class="headerlink" title="CMS执行过程"></a>CMS执行过程</h2><p>前面概览已知，CMS使用的是标记清除法，但实际上需要进行多次标记。</p>
+<ol>
+<li>初始标记（STW initial mark）：暂停虚拟机，从GC Roots开始扫描并标记，且只扫描标记能与GC Roots直接关联的对象，所以STW的时间较短。</li>
+<li>并发标记（Concurrent marking）：在初始标记的基础上继续向下追溯标记，此阶段应用程序线程与并发标记线程并发执行，用户不会感受到停顿。</li>
+<li>并发预清理（Concurrent precleaning）：扫描标记在并发标记阶段进入老年代的对象，此阶段仍然是并发的。此阶段目的是减少下一阶段的工作量，因为“重新标记”会STW。</li>
+<li>重新标记（SWT remark）：暂停虚拟机，扫描CMS堆中剩余对象，从GC Roots开始向下追溯，并处理关联对象。</li>
+<li>并发清除（Conccurent sweeping）：清理垃圾对象，此阶段收集器线程与应用程序线程并发执行。</li>
+<li>并发重置（Concurrent reset）：重置CMS收集器的数据结构状态，等待下一次垃圾回收。</li>
+</ol>
+<h2 id="G1执行过程"><a href="#G1执行过程" class="headerlink" title="G1执行过程"></a>G1执行过程</h2><p>G1的执行过程与CMS类似</p>
+<ol>
+<li>初始标记：暂停虚拟机，进行初始标记，并且会捎带触发一次young GC。</li>
+<li>并发标记：在初始标记的基础上继续向下追溯标记，并发标记线程与应用程序线程并发执行，且有可能被young GC打断。并发标记在整个堆中进行（不分代，分区），如果发现某区域中所有对象都是垃圾对象，那这个区域会立即被回收。并发标记过程中也会对每个区域的对象活性（区域中存活的对象比例）进行计算。</li>
+<li>最终标记：补充收集并发标记阶段产生的新垃圾，使用了更快的算法：SATB。</li>
+<li>筛选回收：暂停虚拟机，选择活性低的区域（同时考虑停顿时间），等待下次young GC一起收集。</li>
+<li>回收完成：新的young GC清理被计算好的区域。回收完成后，有些区域可能还存在垃圾对象，这可能是因为这些区域中对象活性较高，回收不划算，也可能是因为迎合用户设置的停顿时间，不得不舍弃一些区域的收集。</li>
+</ol>
+<h2 id="CMS与G1的比较"><a href="#CMS与G1的比较" class="headerlink" title="CMS与G1的比较"></a>CMS与G1的比较</h2><table>
+<thead>
+<tr>
+<th>比较方面</th>
+<th>CMS</th>
+<th>G1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>设计目标</td>
+<td>CMS收集器的设计目标是获取最短回收停顿时间（STW时间），只有在初始标记与重新标记时会产生STW。</td>
+<td>G1收集器面向服务端，在满足短时间停顿时，还能达到较高的吞吐量。</td>
+</tr>
+<tr>
+<td>GC算法</td>
+<td>基于标记清除法，清理过程会产生大量的空间碎片。</td>
+<td>堆比较大时可以采用复制算法，碎片化问题不严重；整体上看属于标记整理法，局部（Region之间）属于复制算法。</td>
+</tr>
+<tr>
+<td>CPU资源利用</td>
+<td>CMS收集器对CPU资源敏感，在并发阶段，虽然不会导致用户线程停顿，但会占用CPU资源导致应用程序变慢，吞吐量下降。</td>
+<td>G1收集器适用于多核CPU、大内存容量的服务端系统，其能充分利用CPU、多核环境下的硬件优势，使用多个CPU或多核CPU来缩短STW时间。</td>
+</tr>
+<tr>
+<td>内存划分</td>
+<td>堆中的老年代</td>
+<td>堆不分代，分成多个块（Region），块各自进行回收。</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>CMS适用于小内存应用。</td>
+<td>G1收集器适用于多核CPU、大内存容量的应用。</td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -234,7 +348,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/JVM/" rel="tag"># JVM</a>
+              <a href="/tags/GC/" rel="tag"># GC</a>
           </div>
 
         
@@ -243,13 +359,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%90%84%E5%B1%82%E5%B8%B8%E8%A7%81%E5%8D%8F%E8%AE%AE/" rel="prev" title="计算机网络-各层常见协议">
-      <i class="fa fa-chevron-left"></i> 计算机网络-各层常见协议
+    <a href="/2021/04/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B/" rel="prev" title="操作系统-进程&线程">
+      <i class="fa fa-chevron-left"></i> 操作系统-进程&线程
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93-%E4%BA%8B%E5%8A%A1/" rel="next" title="数据库-事务">
-      数据库-事务 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -308,6 +421,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E6%94%B6%E5%99%A8%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">回收器概览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CMS%E4%B8%8EG1"><span class="nav-number">2.</span> <span class="nav-text">CMS与G1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CMS%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">CMS执行过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">G1执行过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMS%E4%B8%8EG1%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">2.3.</span> <span class="nav-text">CMS与G1的比较</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
