@@ -20,21 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="你说弄那么多引擎干啥，反正平时也不见用。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MySQL-引擎">
-<meta property="og:url" content="http://example.com/2021/04/20/MySQL-%E5%BC%95%E6%93%8E/index.html">
+  <meta name="description" content="四海的草稿箱">
+<meta property="og:type" content="website">
+<meta property="og:title" content="For-Sea">
+<meta property="og:url" content="http://example.com/archives/page/2/index.html">
 <meta property="og:site_name" content="For-Sea">
-<meta property="og:description" content="你说弄那么多引擎干啥，反正平时也不见用。">
+<meta property="og:description" content="四海的草稿箱">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-20T07:35:31.000Z">
-<meta property="article:modified_time" content="2021-04-20T07:36:40.418Z">
 <meta property="article:author" content="For-Sea">
-<meta property="article:tag" content="数据库">
-<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/04/20/MySQL-%E5%BC%95%E6%93%8E/">
+<link rel="canonical" href="http://example.com/archives/page/2/">
 
 
 <script id="page-configurations">
@@ -42,12 +38,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>MySQL-引擎 | For-Sea</title>
+  <title>归档 | For-Sea</title>
   
 
 
@@ -165,158 +161,54 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content archive">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/MySQL-%E5%BC%95%E6%93%8E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="For-Sea">
-      <meta itemprop="description" content="四海的草稿箱">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="For-Sea">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          MySQL-引擎
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-20 15:35:31 / 修改时间：15:36:40" itemprop="dateCreated datePublished" datetime="2021-04-20T15:35:31+08:00">2021-04-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <span class="collection-header">嗯..! 目前共计 11 篇日志。 继续努力。</span>
+      </div>
 
       
-        <p>你说弄那么多引擎干啥，反正平时也不见用。</p>
-<span id="more"></span>
-
-<table>
-<thead>
-<tr>
-<th>MySQL引擎</th>
-<th>存储限制</th>
-<th>支持事务</th>
-<th>支持全文索引</th>
-<th>支持数索引</th>
-<th>支持哈希索引</th>
-<th>支持数据缓存</th>
-<th>支持外键</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>InnoDB</td>
-<td>64TB</td>
-<td>√</td>
-<td>×</td>
-<td>√</td>
-<td>×</td>
-<td>√</td>
-<td>√</td>
-</tr>
-<tr>
-<td>MyISAM</td>
-<td>256TB</td>
-<td>×</td>
-<td>√</td>
-<td>√</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>RAM</td>
-<td>×</td>
-<td>×</td>
-<td>√</td>
-<td>√</td>
-<td>N/A</td>
-<td>×</td>
-</tr>
-<tr>
-<td>Archive</td>
-<td>None</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-</tr>
-</tbody></table>
-<ol>
-<li>InnoDB存储引擎：InnoDB存储引擎支持事务，其设计目标主要面向在线事务处理（OLTP）的应用。其特点是行锁设计，支持外键，并支持非锁定锁，即默认读取操作不会产生锁。从Mysql5.5.8版本开始，InnoDB存储引擎是默认的存储引擎。</li>
-<li>MyISAM存储引擎：MyISAM存储引擎不支持事务、表锁设计，支持全文索引，主要面向一些OLAP数据库应用。InnoDB的数据文件本身就是主索引文件，而MyISAM的主索引和数据是分开的。</li>
-<li>NDB存储引擎：NDB存储引擎是一个集群存储引擎，其结构是share nothing的集群架构，能提供更高的可用性。NDB的特点是数据全部放在内存中（从MySQL 5.1版本开始，可以将非索引数据放在磁盘上），因此主键查找的速度极快，并且通过添加NDB数据存储节点可以线性地提高数据库性能，是高可用、高性能的集群系统。NDB存储引擎的连接操作是在MySQL数据库层完成的，而不是在存储引擎层完成的。这意味着，复杂的连接操作需要巨大的网络开销，因此查询速度很慢。如果解决了这个问题，NDB存储引擎的市场应该是非常巨大的。</li>
-<li>Memory存储引擎：Memory存储引擎（之前称HEAP存储引擎）将表中的数据存放在内存中，如果数据库重启或发生崩溃，表中的数据都将消失。它非常适合用于存储临时数据的临时表，以及数据仓库中的纬度表。Memory存储引擎默认使用哈希索引，而不是我们熟悉的B+树索引。虽然Memory存储引擎速度非常快，但在使用上还是有一定的限制。比如，只支持表锁，并发性能较差，并且不支持TEXT和BLOB列类型。最重要的是，存储变长字段时是按照定常字段的方式进行的，因此会浪费内存。</li>
-<li>Archive存储引擎：Archive存储引擎只支持INSERT和SELECT操作，从MySQL 5.1开始支持索引。Archive存储引擎使用zlib算法将数据行（row）进行压缩后存储，压缩比一般可达1∶10。正如其名字所示，Archive存储引擎非常适合存储归档数据，如日志信息。Archive存储引擎使用行锁来实现高并发的插入操作，但是其本身并不是事务安全的存储引擎，其设计目标主要是提供高速的插入和压缩功能。</li>
-<li>Maria存储引擎：Maria存储引擎是新开发的引擎，设计目标主要是用来取代原有的MyISAM存储引擎，从而成为MySQL的默认存储引擎。它可以看做是MyISAM的后续版本。Maria存储引擎的特点是：支持缓存数据和索引文件，应用了行锁设计，提供了MVCC功能，支持事务和非事务安全的选项，以及更好的BLOB字符类型的处理性能。</li>
-</ol>
-
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
-              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
-          </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-04-20T12:40:33+08:00"
+              content="2021-04-20">
+          04-20
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/04/20/hello-world/" itemprop="url">
+            <span itemprop="name">Hello World</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/04/20/MySQL-%E7%B4%A2%E5%BC%95/" rel="prev" title="MySQL-索引">
-      <i class="fa fa-chevron-left"></i> MySQL-索引
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E4%B8%8ETCP/" rel="next" title="计算机网络-UDP与TCP">
-      计算机网络-UDP与TCP <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+
+    </div>
+  </div>
   
   
   
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
