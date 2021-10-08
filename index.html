@@ -167,6 +167,222 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/08/Git-Gitee%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="For-Sea">
+      <meta itemprop="description" content="四海的草稿箱">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="For-Sea">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/08/Git-Gitee%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="post-title-link" itemprop="url">Git + Gitee（码云）使用手册</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-10-08 15:14:15 / 修改时间：15:17:28" itemprop="dateCreated datePublished" datetime="2021-10-08T15:14:15+08:00">2021-10-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>重点：</p>
+<ol>
+<li><p>了解Git、Gitee的概念；</p>
+</li>
+<li><p>安装Git、注册Gitee；</p>
+</li>
+<li><p>尝试创建Gitee的远程仓库，并与本地仓库进行关联；</p>
+</li>
+<li><p>掌握分支概念，掌握如何进行本地仓库与远程仓库同步。</p>
+</li>
+</ol>
+<h1 id="Git简介-amp-Gitee简介"><a href="#Git简介-amp-Gitee简介" class="headerlink" title="Git简介 &amp; Gitee简介"></a>Git简介 &amp; Gitee简介</h1><blockquote>
+<p>Git</p>
+</blockquote>
+<p>什么是Git：Git是一个分布式版本控制系统，简单来说就是一个代码管理工具，方便团队开发时，对于代码的统一管理。</p>
+<blockquote>
+<p>Gitee</p>
+</blockquote>
+<p>什么是Gitee：Gitee是国内的一家软件项目托管平台，国外也有类似的平台GitHub，但是GitHub在国内访问并不稳定。Gitee可以看作是软件项目的“云盘”，可以将搭配Git，进行软件项目代码的管理。</p>
+<h1 id="Git安装-amp-Gitee注册"><a href="#Git安装-amp-Gitee注册" class="headerlink" title="Git安装 &amp; Gitee注册"></a>Git安装 &amp; Gitee注册</h1><blockquote>
+<p>Git安装</p>
+</blockquote>
+<p>官网下载地址：<a target="_blank" rel="noopener" href="http://git-scm.com/downloads">http://git-scm.com/downloads</a></p>
+<p>国内镜像下载地址：<a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
+<p>下载.exe文件后，运行，一路Next即可。</p>
+<p>最后在桌面右键，出现如下两个选项则表示安装成功。</p>
+<p><img src="https://i.loli.net/2021/10/08/C2KpRW4XG7buHDk.png" alt="img"></p>
+<blockquote>
+<p>Gitee注册</p>
+</blockquote>
+<p>Gitee官网：<a target="_blank" rel="noopener" href="https://gitee.com/%EF%BC%8C%E6%B3%A8%E5%86%8C%E5%BE%88%E7%AE%80%E5%8D%95%EF%BC%8C%E4%B8%8D%E5%A4%9A%E8%AF%B4%E3%80%82">https://gitee.com/，注册很简单，不多说。</a></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/5377511/1633245744047-1f201d02-0a28-47aa-ac2f-8a3d621d95bf.png" alt="img"></p>
+<h1 id="在本地Git登录Gitee帐号"><a href="#在本地Git登录Gitee帐号" class="headerlink" title="在本地Git登录Gitee帐号"></a>在本地Git登录Gitee帐号</h1><blockquote>
+<p>配置用户名 &amp; 邮箱</p>
+</blockquote>
+<p>相当于登录。</p>
+<p>在桌面右键，点击<code>Git Bash Here</code>，打开Git的命令行窗口。</p>
+<p><img src="https://i.loli.net/2021/10/08/DacmsR8dxohY3tO.png" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/08/u3igxJIrKDWesFz.png" alt="img"></p>
+<p>输入<code> git config --global user.name &quot;自己的用户名&quot;</code>，回车。</p>
+<p>输入<code>git config --global user.email &quot;自己的邮箱&quot;</code>，回车。</p>
+<p>用户名和邮箱就配置完了。</p>
+<p><img src="https://i.loli.net/2021/10/08/buGUVWqE2C5H1dI.png" alt="img"></p>
+<blockquote>
+<p>配置SSH Key</p>
+</blockquote>
+<p>为什么配置SSH Key：配置SSH Key的目的是实现免密登录，否则每次提交代码时都需要输入邮箱密码，比较繁琐。</p>
+<p>在命令行窗口输入命令<code>ssh-keygen -t rsa -C &quot;自己的邮箱&quot;</code>生成密钥文件，会有3次提示，直接回车就行。如果密钥文件之前已经存在，则会提示是否覆盖，覆盖即可。</p>
+<p><img src="https://i.loli.net/2021/10/08/Bem28ZiVanPhYtz.png" alt="img"></p>
+<p>在标红的目录下可以找到生成的密钥文件：</p>
+<p><img src="https://i.loli.net/2021/10/08/81TbYHVZPGnXgfl.png" alt="img"></p>
+<p>记事本打开<code>id_rsa.pub</code>，即为公钥，全选、复制其中的内容。</p>
+<p><img src="https://i.loli.net/2021/10/08/LTHAaDW3GlksyuX.png" alt="img"></p>
+<p>登录Gitee，进入个人主页–&gt;个人设置–&gt;SSH公钥，将刚才复制的公钥粘贴上去，确定。</p>
+<p><img src="https://i.loli.net/2021/10/08/fioVDrh1RjXNPId.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/5377511/1633248065717-e0be5621-7646-4776-be8c-521184f2c8a8.png" alt="img"></p>
+<p>返回命令行窗口，输入命令<code>ssh -T git@git.oschina.net</code>，弹出提示，输入yes。</p>
+<p><img src="https://i.loli.net/2021/10/08/qUebShmlMg8i6fQ.png" alt="img"></p>
+<p>出现successfully即可。</p>
+<h1 id="Gitee：创建远程仓库"><a href="#Gitee：创建远程仓库" class="headerlink" title="Gitee：创建远程仓库"></a>Gitee：创建远程仓库</h1><p>在Gitee创建远程仓库，并克隆到本地。</p>
+<blockquote>
+<p>Gitee：新建远程仓库</p>
+</blockquote>
+<p>新建远程仓库：</p>
+<p><img src="https://i.loli.net/2021/10/08/g8HC5XU72vfmqxw.png" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/08/s27lrZQhmwYfjvS.png" alt="img"></p>
+<p>创建完毕：</p>
+<p><img src="https://i.loli.net/2021/10/08/rZ7OeVU9lpF3Evq.png" alt="img"></p>
+<blockquote>
+<p>Git：克隆远程仓库到本地</p>
+</blockquote>
+<p>现在将Gitee上的远程仓库克隆到Git的本地仓库。</p>
+<p>创建一个文件夹用来当本地仓库：</p>
+<p><img src="https://i.loli.net/2021/10/08/pWxnfT2e1Pu6Siy.png" alt="img"></p>
+<p>在此处打开Git的命令行窗口：</p>
+<p><img src="https://i.loli.net/2021/10/08/EaZsAI5uHFqfh6m.png" alt="img"></p>
+<p>回到Gitee的远程仓库，复制仓库的地址：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/5377511/1633250149144-a2c8aee3-f49b-4044-a888-a75d6525f3f7.png" alt="img"></p>
+<p>继续在命令行窗口输入命令：<code>git clone 仓库地址</code>，将远程仓库克隆到本地仓库：</p>
+<p><img src="https://i.loli.net/2021/10/08/pLOfr6CB2kTPnv8.png" alt="img"></p>
+<p>克隆完毕，回到文件夹下查看，新增了一个文件夹，就是克隆过来的远程仓库：</p>
+<p><img src="https://i.loli.net/2021/10/08/cKHgtB3sb9F4fSk.png" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/08/ftNIMqr6o18i5GV.png" alt="img"></p>
+<h1 id="Git：一般使用"><a href="#Git：一般使用" class="headerlink" title="Git：一般使用"></a>Git：一般使用</h1><blockquote>
+<p>Git分区</p>
+</blockquote>
+<p>Git分为<code>工作区、暂存区、本地仓库、远程仓库</code>等分区，以一个代码文件为例，其在Git中的路线是：工作区修改代码–&gt;暂存区暂时存放（此时修改未保存到本地仓库）–&gt;提交到本地仓库–&gt;推送到远程仓库。</p>
+<blockquote>
+<p>初始化本地仓库</p>
+</blockquote>
+<p><code>git init</code>：将当前文件夹初始化为一个本地仓库。</p>
+<blockquote>
+<p>查看仓库状态</p>
+</blockquote>
+<p><code>git status</code>：查看当前仓库状态。</p>
+<blockquote>
+<p>添加文件</p>
+</blockquote>
+<p><code>git add &lt;file&gt;</code>：将指定的文件添加到暂存区。</p>
+<p><code>git add -A</code>：将所有文件添加到暂存区。</p>
+<blockquote>
+<p>提交</p>
+</blockquote>
+<p><code>git commit -m &quot;提交信息&quot;</code>：将暂存区的所有文件提交到本地仓库，每次提交时都需要附加提交信息（注释）。</p>
+<blockquote>
+<p>查看文件修改和撤销修改</p>
+</blockquote>
+<p><code>git diff</code>：查看文件有哪些修改。</p>
+<p><code>git checkout &lt;file&gt;</code>：未add，撤销修改。</p>
+<p><code>git reset HEAD &lt;file&gt;</code>：已add未commit，撤销修改。</p>
+<p><code>git log</code>：查看提交记录，可以查看每个版本的哈希码。</p>
+<p><code>git reset --hard 哈希码前七位</code>：已commit，撤销修改（版本回退）。</p>
+<h1 id="本地仓库与远程仓库同步"><a href="#本地仓库与远程仓库同步" class="headerlink" title="本地仓库与远程仓库同步"></a>本地仓库与远程仓库同步</h1><blockquote>
+<p>分支</p>
+</blockquote>
+<p>什么是分支：我认为分支就像项目的“平行宇宙”，一个项目可以有不同的分支，不同的角色可以在不同的分支上对代码进行修改，但彼此之间不会相互影响，就像“平行宇宙”一样。其中主分支一般称为master。</p>
+<p>至于为什么划分分支管理，可以自行搜索一下。</p>
+<blockquote>
+<p>切换分支</p>
+</blockquote>
+<p><code>git branch &lt;branchname&gt;</code>：创建分支。</p>
+<p><code>git checkout &lt;branchname&gt;</code>：切换分支。</p>
+<p><code>git checkout -b &lt;branchname&gt;</code>：创建并切换分支。</p>
+<p><code>git branch -d &lt;branchname&gt;</code>：删除分支 。</p>
+<blockquote>
+<p>拉取</p>
+</blockquote>
+<p><code>git pull &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>：通用命令格式。</p>
+<p><code>git pull origin master:&lt;branchname&gt;</code>：将远程仓库的master分支内容拉取并与<branchname>分支合并。</p>
+<p><code>git pull origin master</code>：将远程仓库的master分支内容拉取并与当前分支合并。</p>
+<blockquote>
+<p>推送</p>
+</blockquote>
+<p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>：通用命令格式。</p>
+<p><code>git push origin master:master</code>：将本地的master分支推送到远程仓库的master分支。</p>
+<p><code>git push --force origin master</code>：本地版本与远程版本有差异，强制推送。</p>
+<blockquote>
+<p>合并分支</p>
+</blockquote>
+<p><code>git merge &lt;branchname&gt;</code>：合并分支到当前分支。</p>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><p>一般提交流程：先add，再commit，再push。</p>
+<ol>
+<li>Gitee创建远程仓库；</li>
+<li>将远程仓库克隆到Git本地仓库；</li>
+<li>本地仓库新建分支（以名字首拼命名，如xsh），并在该分支下新建空文件test.txt，最后将修改提交到远程仓库的master分支。</li>
+<li>远程仓库新建分支（同样以名字首拼命名，如xsh），并将本地仓库同名分支的文件提交到此分支中。</li>
+<li>将远程仓库的新建分支（如xsh），拉取到本地仓库的master分支。</li>
+</ol>
+<p>以上流程建议画图，帮助理解。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/11/SpringBoot-day02-%E6%95%B4%E5%90%88MyBatis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -845,81 +1061,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/MySQL-%E5%BC%95%E6%93%8E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="For-Sea">
-      <meta itemprop="description" content="四海的草稿箱">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="For-Sea">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/20/MySQL-%E5%BC%95%E6%93%8E/" class="post-title-link" itemprop="url">MySQL-引擎</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-20 15:35:31 / 修改时间：15:36:40" itemprop="dateCreated datePublished" datetime="2021-04-20T15:35:31+08:00">2021-04-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>你说弄那么多引擎干啥，反正平时也不见用。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/20/MySQL-%E5%BC%95%E6%93%8E/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -991,20 +1132,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
