@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/10/27/54MdwPqWJnQGXvY.png">
 <meta property="og:image" content="https://i.loli.net/2021/10/27/mcV2D4woFdTPI16.png">
 <meta property="article:published_time" content="2021-10-27T06:53:07.000Z">
-<meta property="article:modified_time" content="2021-10-27T07:26:01.896Z">
+<meta property="article:modified_time" content="2021-10-27T07:41:06.252Z">
 <meta property="article:author" content="For-Sea">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -201,7 +201,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-10-27 14:53:07 / 修改时间：15:26:01" itemprop="dateCreated datePublished" datetime="2021-10-27T14:53:07+08:00">2021-10-27</time>
+              <time title="创建时间：2021-10-27 14:53:07 / 修改时间：15:41:06" itemprop="dateCreated datePublished" datetime="2021-10-27T14:53:07+08:00">2021-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,17 +288,17 @@
 </blockquote>
 <p>六大原则：</p>
 <ol>
-<li><p>单一职责原则：一个类只实现一个功能。封装</p>
+<li><p>单一职责原则：一个类只实现一个功能。</p>
 </li>
-<li><p>开闭原则：对扩展开发，对修改关闭。封装</p>
+<li><p>开闭原则：对扩展开发，对修改关闭。</p>
 </li>
-<li><p>里氏替换原则：有父类存在的地方，将其替换成子类也不会产生错误。继承</p>
+<li><p>里氏替换原则：有父类存在的地方，将其替换成子类也不会产生错误。</p>
 </li>
-<li><p>依赖倒置原则：模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系是通过   接口或抽象类产生的。即依赖抽象，而不依赖具体的实现。多态</p>
+<li><p>依赖倒置原则：模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系是通过   接口或抽象类产生的。即依赖抽象，而不依赖具体的实现。</p>
 </li>
-<li><p>接口隔离原则：客户端不应该依赖其不需要的接口。多态</p>
+<li><p>接口隔离原则：客户端不应该依赖其不需要的接口。</p>
 </li>
-<li><p>迪米特原则：一个类应该对自己调用的类知道得最少。封装</p>
+<li><p>迪米特原则：一个类应该对自己调用的类知道得最少。</p>
 </li>
 </ol>
 <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><blockquote>
@@ -311,7 +311,8 @@
 </blockquote>
 <p>什么是类型擦除：使用泛型时，给定的数据类型会在编译器编译时去掉，替换成原始类型（Object或指定的类型边界），这个过程称为类型擦除。（如在代码中定义<code>List&lt;Object&gt;</code>和<code>List&lt;String&gt;</code>等类型，在编译后都会变成<code>List</code>，JVM看到的只是<code>List</code>，而由泛型附加的类型信息对JVM是看不到的。）</p>
 <p>类型擦除参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wuqinglong/p/9456193.html">https://www.cnblogs.com/wuqinglong/p/9456193.html</a></p>
-<p>为什么要使用类型擦除：<a target="_blank" rel="noopener" href="https://www.pulpcode.cn/2017/12/30/why-java-generic-use-type-eraser/%EF%BC%8C%E4%B8%BB%E8%A6%81%E6%98%AF%E4%B8%BA%E4%BA%86%E5%90%91%E5%90%8E%E5%85%BC%E5%AE%B9%E3%80%82">https://www.pulpcode.cn/2017/12/30/why-java-generic-use-type-eraser/，主要是为了向后兼容。</a></p>
+<p>为什么要使用类型擦除：主要是为了向后兼容。</p>
+<p>参考连接：<a target="_blank" rel="noopener" href="https://www.pulpcode.cn/2017/12/30/why-java-generic-use-type-eraser/">https://www.pulpcode.cn/2017/12/30/why-java-generic-use-type-eraser/</a></p>
 <p>类型擦除的问题及解决方案：</p>
 <ol>
 <li><p>既然有类型擦除，那么如何实现数据类型过滤？答：Java编译器先检查代码中泛型的类型，再进行类型擦除，再进行编译。</p>
