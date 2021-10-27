@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Java基础面向对象 面向对象与面向过程的区别  面向过程：自顶向下，逐步求精。将过程分解成各个函数（模块），再依次调用执行。简单高效，执行快速。 面向对象：模拟现实世界，针对数据，将数据与其操作抽取并封装成对象。易扩展、易复用、低耦合。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day01-Java基础 &amp; Java容器">
+<meta property="og:url" content="http://example.com/2021/10/27/day01-Java%E5%9F%BA%E7%A1%80-Java%E5%AE%B9%E5%99%A8/index.html">
+<meta property="og:site_name" content="For-Sea">
+<meta property="og:description" content="Java基础面向对象 面向对象与面向过程的区别  面向过程：自顶向下，逐步求精。将过程分解成各个函数（模块），再依次调用执行。简单高效，执行快速。 面向对象：模拟现实世界，针对数据，将数据与其操作抽取并封装成对象。易扩展、易复用、低耦合。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/5377511/1632899843645-4e7e215c-dab1-4177-9c9f-6579b2ba2d5f.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/27/qWNdfw2Pm91DnQY.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/5377511/1632900573147-023705a7-edbf-421b-8ddd-7c5c40a066bd.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/5377511/1632900754877-21ea33fb-e364-49ce-be7d-7735ae782b96.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/27/mcV2D4woFdTPI16.png">
+<meta property="article:published_time" content="2021-10-27T06:53:07.000Z">
+<meta property="article:modified_time" content="2021-10-27T07:03:26.988Z">
+<meta property="article:author" content="For-Sea">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/5377511/1632899843645-4e7e215c-dab1-4177-9c9f-6579b2ba2d5f.png">
+
+<link rel="canonical" href="http://example.com/2021/10/27/day01-Java%E5%9F%BA%E7%A1%80-Java%E5%AE%B9%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>day01-Java基础 & Java容器 | For-Sea</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">For-Sea</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/27/day01-Java%E5%9F%BA%E7%A1%80-Java%E5%AE%B9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="For-Sea">
+      <meta itemprop="description" content="四海的草稿箱">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="For-Sea">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          day01-Java基础 & Java容器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-10-27 14:53:07 / 修改时间：15:03:26" itemprop="dateCreated datePublished" datetime="2021-10-27T14:53:07+08:00">2021-10-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><blockquote>
+<p>面向对象与面向过程的区别</p>
+</blockquote>
+<p>面向过程：自顶向下，逐步求精。将过程分解成各个函数（模块），再依次调用执行。简单高效，执行快速。</p>
+<p>面向对象：模拟现实世界，针对数据，将数据与其操作抽取并封装成对象。易扩展、易复用、低耦合。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>封装</p>
+</blockquote>
+<p>什么是封装：将数据与对数据的操作封装成类。</p>
+<p>封装有什么好处：隐藏信息、减少耦合、便于复用、方便扩展、提高安全性。</p>
+<blockquote>
+<p>继承</p>
+</blockquote>
+<p>什么是继承：子类继承父类的特征和行为。</p>
+<p>继承有什么好处：提高代码复用性，便于对父类进行扩展。</p>
+<p>注意点：</p>
+<ul>
+<li><p>super、this关键字：super指向父类，this指向自己。</p>
+</li>
+<li><p>final关键字：修饰的类不能被继承，修饰的方法不能被重写。</p>
+</li>
+<li><p>构造器：子类不能继承父类的构造器，只能调用父类构造器；若父类含有参构造器，则子类必须显式调用该有参构造器；若父类不含有参构造器，则子类隐式调用无参构造器。（PS：为什么写了有参构造器，要再写一个无参构造器。）</p>
+</li>
+</ul>
+<blockquote>
+<p>多态</p>
+</blockquote>
+<p>什么是多态：同一个行为，拥有不同的表现形式或形态。</p>
+<p>多态有什么好处：应对需求变化，提高代码可扩展性、灵活性。</p>
+<ol>
+<li>多态在Java中的表现形式（使用场景）：<ol>
+<li>前提：编译、重写、父类引用指向子类对象 <code>List&lt;String&gt; list = new ArrayList&lt;&gt;();</code>。</li>
+<li>处理：成员变量、静态方法看左边；非静态方法：编译看左边，运行看右边。</li>
+<li>表现：方法重写、接口、抽象类与抽象方法、统一传参类型。</li>
+</ol>
+</li>
+<li>静态绑定与动态绑定：<ol>
+<li>什么是绑定：在多态的情况下，运行时确定调用的是父类还是子类的变量或方法，这个过程叫绑定。绑定分为静态绑定和动态绑定。</li>
+<li>静态绑定（早期绑定）：发生在编译时期，使用private、static、final    修饰的变量或方法使用静态绑定；重载使用静态绑定完成。</li>
+<li>动态绑定（后期绑定）：发生在运行时期，虚方法（Java中为能被重写的普通方法）使用动态绑定；重写使用动态绑定。</li>
+<li>了解绑定有什么好处：使用动态绑定需要在运行时确定使用父类还是子类的变量或方法，比静态绑定耗时，因此在不影响整体设计的前提下，可以考虑用private、static、final进行修饰。</li>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://droidyue.com/blog/2014/12/28/static-biding-and-dynamic-binding-in-java/">https://droidyue.com/blog/2014/12/28/static-biding-and-dynamic-binding-in-java/</a></li>
+</ol>
+</li>
+<li>向上转型与向下转型：<ol>
+<li>什么是向上转型：父类引用指向子类对象。</li>
+<li>什么是向下转型：在向上转型的前提下，将父类引用更改为子类引用。</li>
+<li>向上转型有什么好处：传递参数时，使参数能够统一（只需要将子类向上转型，然后传递子类的公共父类作为参数即可）。</li>
+<li>向下转型有不安全的情况（原对象是父类对象），可以使用instanceof关键字保证安全性。<code>boolean result = a instanceof ClassA</code></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>延申：面向接口编程</p>
+</blockquote>
+<p>什么是面向接口编程：将代码的定义与实现分离，表现为先定义接口，再定义接口的实现类。</p>
+<p>面向接口编程有什么好处：更加抽象，更加面向对象；提高编程的灵活性；实现高内聚、低耦合，提高可维护性</p>
+<blockquote>
+<p>延申：面向对象的设计原则</p>
+</blockquote>
+<p>六大原则：</p>
+<ol>
+<li><p>单一职责原则：一个类只实现一个功能。封装</p>
+</li>
+<li><p>开闭原则：对扩展开发，对修改关闭。封装</p>
+</li>
+<li><p>里氏替换原则：有父类存在的地方，将其替换成子类也不会产生错误。继承</p>
+</li>
+<li><p>依赖倒置原则：模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系是通过   接口或抽象类产生的。即依赖抽象，而不依赖具体的实现。多态</p>
+</li>
+<li><p>接口隔离原则：客户端不应该依赖其不需要的接口。多态</p>
+</li>
+<li><p>迪米特原则：一个类应该对自己调用的类知道得最少。封装</p>
+</li>
+</ol>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><blockquote>
+<p>泛型</p>
+</blockquote>
+<p>什么是泛型：将数据类型参数化。可以用于定义泛型方法或泛型类。</p>
+<p>泛型有什么好处：类型安全，过滤出类型不符的异常；消除强制类型转换；提高代码可读性。</p>
+<blockquote>
+<p>泛型的底层原理：类型擦除</p>
+</blockquote>
+<p>什么是类型擦除：使用泛型时，给定的数据类型会在编译器编译时去掉，替换成原始类型（Object或指定的类型边界），这个过程称为类型擦除。（如在代码中定义<code>List&lt;Object&gt;</code>和<code>List&lt;String&gt;</code>等类型，在编译后都会变成<code>List</code>，JVM看到的只是<code>List</code>，而由泛型附加的类型信息对JVM是看不到的。）</p>
+<p>类型擦除参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wuqinglong/p/9456193.html">https://www.cnblogs.com/wuqinglong/p/9456193.html</a></p>
+<p>为什么要使用类型擦除：<a target="_blank" rel="noopener" href="https://www.pulpcode.cn/2017/12/30/why-java-generic-use-type-eraser/%EF%BC%8C%E4%B8%BB%E8%A6%81%E6%98%AF%E4%B8%BA%E4%BA%86%E5%90%91%E5%90%8E%E5%85%BC%E5%AE%B9%E3%80%82">https://www.pulpcode.cn/2017/12/30/why-java-generic-use-type-eraser/，主要是为了向后兼容。</a></p>
+<p>类型擦除的问题及解决方案：</p>
+<ol>
+<li><p>既然有类型擦除，那么如何实现数据类型过滤？答：Java编译器先检查代码中泛型的类型，再进行类型擦除，再进行编译。</p>
+</li>
+<li><p>既然有类型擦除，那么为什么返回值还是指定的数据类型呢？ 答：返回时根据指定的数据类型进行了强制转换。</p>
+</li>
+<li><p>类型擦除与多态的冲突：桥方法。</p>
+</li>
+</ol>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><blockquote>
+<p>动态语言与静态语言</p>
+</blockquote>
+<p>什么是动态语言和静态语言：动态语言是指在运行期间，代码可以根据某些条件改变自身结构的语言，如Python、JavaScript；静态语言则是在运行时不能改变代码自身结构的语言，如Java、C++。</p>
+<blockquote>
+<p>反射</p>
+</blockquote>
+<p>Java虽然是静态语言，但是可以通过反射达到部分动态语言的效果。</p>
+<p>什么是反射：可以在加载一个在运行时才得知名称的类，获得其完整构造，并生成其对象实体、或对其变量复制、或调用其方法。</p>
+<p>反射有什么好处：利用配置文件提高灵活性，使外部调用更方便。缺点是性能低，没有直接new创建对象快。</p>
+<p>反射的使用场景：Spring的IOC实现；JDBC加载数据库驱动。</p>
+<p>反射的使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Class类主要API：</span><br><span class="line">        成员变量  - Field</span><br><span class="line">        成员方法  - Constructor</span><br><span class="line">        构造方法  - Method</span><br><span class="line">获取class文件对象的方式：</span><br><span class="line">        1：Object类的getClass()方法</span><br><span class="line">        2：数据类型的静态属性class</span><br><span class="line">        3：Class类中的静态方法：public static Class ForName(String className)</span><br><span class="line">--------------------------------  </span><br><span class="line">获取成员变量并使用</span><br><span class="line">        1: 获取Class对象</span><br><span class="line">        2：通过Class对象获取Constructor对象</span><br><span class="line">        3：Object obj &#x3D; Constructor.newInstance()创建对象</span><br><span class="line">        4：Field field &#x3D; Class.getField(&quot;指定变量名&quot;)获取单个成员变量对象</span><br><span class="line">        5：field.set(obj,&quot;&quot;) 为obj对象的field字段赋值</span><br><span class="line">如果需要访问私有或者默认修饰的成员变量</span><br><span class="line">        1:Class.getDeclaredField()获取该成员变量对象</span><br><span class="line">        2:setAccessible() 暴力访问  </span><br><span class="line">---------------------------------          </span><br><span class="line">通过反射调用成员方法</span><br><span class="line">        1：获取Class对象</span><br><span class="line">        2：通过Class对象获取Constructor对象</span><br><span class="line">        3：Constructor.newInstance()创建对象</span><br><span class="line">        4：通过Class对象获取Method对象  ------getMethod(&quot;方法名&quot;);</span><br><span class="line">        5: Method对象调用invoke方法实现功能</span><br><span class="line">如果调用的是私有方法那么需要暴力访问</span><br><span class="line">        1: getDeclaredMethod()</span><br><span class="line">        2: setAccessiable();</span><br></pre></td></tr></table></figure>
+
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><blockquote>
+<p>访问修饰符</p>
+</blockquote>
+<ul>
+<li><p>default：同一包内可见。</p>
+</li>
+<li><p>private：同一类内可见。</p>
+</li>
+<li><p>protected：同一包内及所有子类可见。</p>
+</li>
+<li><p>public：对所有类可见。</p>
+</li>
+</ul>
+<blockquote>
+<p>static关键字</p>
+</blockquote>
+<p>修饰变量或方法。</p>
+<ul>
+<li>修饰变量：无论有多少实例对象，只有一份静态变量的拷贝。</li>
+<li>修饰方法：可以在不实例化对象的情况下，直接使用方法。</li>
+</ul>
+<blockquote>
+<p>final关键字</p>
+</blockquote>
+<p>修饰变量、方法、类。</p>
+<ul>
+<li><p>修饰变量：常量，不能再赋值。</p>
+</li>
+<li><p>修饰方法：可以被子类继承，但不能再重写。</p>
+</li>
+<li><p>修饰类：不能被继承。</p>
+</li>
+</ul>
+<h2 id="String、StringBuilder、StringBuffer底层区别"><a href="#String、StringBuilder、StringBuffer底层区别" class="headerlink" title="String、StringBuilder、StringBuffer底层区别"></a>String、StringBuilder、StringBuffer底层区别</h2><blockquote>
+<p>可变性</p>
+</blockquote>
+<ul>
+<li>String底层是final类型的字符数组<code>private final char[] value</code>，不可变（PS：Java 9之后改为了字节数组<code>byte[]</code>）。</li>
+<li>StringBuilder与StringBuffer继承自AbstractStringBuilder，是可变的。</li>
+</ul>
+<blockquote>
+<p>线程安全性</p>
+</blockquote>
+<ul>
+<li><p>String底层是不可变的，不能被修改，因此线程安全。</p>
+</li>
+<li><p>StringBuffer底层方法加了同步锁，是线程安全的。</p>
+</li>
+<li><p>StringBuilder没有加同步锁，是非线程安全的。</p>
+</li>
+</ul>
+<blockquote>
+<p>性能</p>
+</blockquote>
+<ul>
+<li>StringBuilder比StringBuffer性能高一点，但存在线程不安全的风险。</li>
+<li>建议操作少量数据，使用String；单线程操作字符串，使用StringBuilder；多线程操作字符串，使用StringBuffer。</li>
+</ul>
+<h2 id="BIO、NIO、AIO"><a href="#BIO、NIO、AIO" class="headerlink" title="BIO、NIO、AIO"></a>BIO、NIO、AIO</h2><blockquote>
+<p>IO模型</p>
+</blockquote>
+<p>什么是IO模型：应用程序对操作系统内核发起IO调用（系统调用），操作系统相关内核负责执行具体的IO操作。一般IO有磁盘IO（读取数据）和网络IO（请求和响应）。</p>
+<p>常见的IO模型有哪些：</p>
+<ul>
+<li><p>同步阻塞IO</p>
+</li>
+<li><p>同步非阻塞IO</p>
+</li>
+<li><p>IO多路复用</p>
+</li>
+<li><p>信号驱动IO</p>
+</li>
+<li><p>异步IO</p>
+</li>
+</ul>
+<blockquote>
+<p>BIO</p>
+</blockquote>
+<p>什么是BIO：Blocking IO，同步阻塞IO。应用程序发起IO调用后，会一直阻塞，直到内核将数据拷贝到用户空间。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/5377511/1632899843645-4e7e215c-dab1-4177-9c9f-6579b2ba2d5f.png" alt="img"></p>
+<blockquote>
+<p>NIO</p>
+</blockquote>
+<p>什么是NIO：Java 1.4 引入，Non-blocking IO或者New IO。一般认为IO多路复用（也有人认为是同步非阻塞IO）。</p>
+<p>什么是同步非阻塞IO：应用程序轮询发起IO调用，直到内核执行IO操作，执行IO操作期间线程仍然是阻塞的。</p>
+<p><img src="https://i.loli.net/2021/10/27/qWNdfw2Pm91DnQY.png" alt="img"></p>
+<p>什么是IO多路复用：应用程序发起select调用，询问内核是否准备好数据，当数据准备好后，再进行IO调用，内核执行IO操作，执行IO操作的过程依然是阻塞的。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/5377511/1632900573147-023705a7-edbf-421b-8ddd-7c5c40a066bd.png" alt="img"></p>
+<p>IO多路复用中，有一个选择器（Selector）的概念，也称为多路复用器。通过Selector，一个服务端线程可以与多个客户端相连，当客户端的数据准备好后，才为该客户端进行服务。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/5377511/1632900754877-21ea33fb-e364-49ce-be7d-7735ae782b96.png" alt="img"></p>
+<blockquote>
+<p>AIO</p>
+</blockquote>
+<p>什么是AIO：Asynchronous IO，异步IO模型。应用程序发起IO调用后直接返回，不会阻塞，当内核处理完成，操作系统会通知线程执行后续操作。</p>
+<p><img src="https://i.loli.net/2021/10/27/mcV2D4woFdTPI16.png" alt="img"></p>
+<h2 id="Object方法"><a href="#Object方法" class="headerlink" title="Object方法"></a>Object方法</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>方法 &amp; 描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-clone.html">protected Object clone()</a>创建并返回一个对象的拷贝</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-equals.html">boolean equals(Object obj)</a>比较两个对象是否相等</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-finalize.html">protected void finalize()</a>当 GC (垃圾回收器)确定不存在对该对象的有更多引用时，由对象的垃圾回收器调用此方法。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-getclass.html">Class getClass()</a>获取对象的运行时对象的类</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-hashcode.html">int hashCode()</a>获取对象的 hash 值</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-notify.html">void notify()</a>唤醒在该对象上等待的某个线程</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-notifyall.html">void notifyAll()</a>唤醒在该对象上等待的所有线程</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-tostring.html">String toString()</a>返回对象的字符串表示形式</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-wait.html">void wait()</a>让当前线程进入等待状态。直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法。</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-wait-timeout.html">void wait(long timeout)</a>让当前线程处于等待(阻塞)状态，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者超过参数设置的timeout超时时间。</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-object-wait-nanos.html">void wait(long timeout, int nanos)</a>与 wait(long timeout) 方法类似，多了一个 nanos 参数，这个参数表示额外时间（以纳秒为单位，范围是 0-999999）。 所以超时的时间还需要加上 nanos 纳秒。。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>equals与hashCode</p>
+</blockquote>
+<ul>
+<li>equals：一般情况下与”==”作用相等，若是基本数据类型，比较的是值；若是引用对象类型，比较的是地址。</li>
+<li>hashCode：生成哈希码，用以确定该元素在散列表中的索引位置。一般相同元素哈希码不同，但是也有可能出现哈希冲突，即不同元素拥有相同的哈希码。</li>
+</ul>
+<p>为什么重写equals方法必须重写hashCode方法？</p>
+<p>答：向散列表存放元素时，先比较哈希码是否一致，节省比较成本，再用equals进行比较。以向HashSet中存放String类型的元素为例，其重写了equals方法，若不重写hashCode方法，则会出现字符串相等，但哈希码不相等，因此存放了重复元素的情况。</p>
+<blockquote>
+<p>clone</p>
+</blockquote>
+<ul>
+<li>浅拷贝：基本数据类型直接拷贝值，引用数据类型创建新的引用指向原地址。</li>
+<li>深拷贝：基本数据类型直接拷贝值，引用数据类型开辟新的内存空间，创建一个相同的新对象和指向该对象的引用。</li>
+</ul>
+<h2 id="自动拆箱与自动装箱"><a href="#自动拆箱与自动装箱" class="headerlink" title="自动拆箱与自动装箱"></a>自动拆箱与自动装箱</h2><blockquote>
+<p>自动拆箱与自动装箱</p>
+</blockquote>
+<p>Java为每种基本数据类型提供了对应的包装类。</p>
+<ul>
+<li>自动装箱：自动将基本数据类型转换为包装器类型，<code>Integer i = 10;</code>。Integer i = new Integer(10);</li>
+<li>自动拆箱：自动将包装器类型转换为基本数据类型，<code>int j = i;</code>。</li>
+</ul>
+<p>为什么需要自动拆箱与自动装箱：基本数据类型使用的是值传递，包装器类型使用的是引用传递，使用包装器类型可以在传递参数后对数值进行更新。</p>
+<p>装箱和拆箱是怎样实现的：以Integer为例，装箱是调用了Integer.valueOf(int n)方法，拆箱是调用了Integer.intValue()方法，其他基本数据类型的装箱拆箱也类似。</p>
+<p>自动拆箱与自动装箱参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/dolphin0520/p/3780005.html">https://www.cnblogs.com/dolphin0520/p/3780005.html</a></p>
+<h1 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h1><p>集合框架：数组不能满足根据不同数据结构存储数据类型，且不能扩容，引入集合框架可以满足对数据存储的不同需求。</p>
+<p>分析集合：底层结构、插入过程、扩容过程、线程安全等方面进行分析。</p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><blockquote>
+<p>ArrayList</p>
+</blockquote>
+<ul>
+<li><p>底层：Object[] 数组</p>
+</li>
+<li><p>线程不安全</p>
+</li>
+<li><p>插入删除：默认插入在末尾，如果选择在中间插入删除的话，需要移动数组元素。</p>
+</li>
+<li><p>支持快速随机访问</p>
+</li>
+</ul>
+<blockquote>
+<p>LinkedList</p>
+</blockquote>
+<ul>
+<li><p>底层：双向链表</p>
+</li>
+<li><p>线程不安全</p>
+</li>
+<li><p>插入删除：头插尾插很方便，如果选择在中间插入删除的话，需要先移动到前一位，再进行链表的插入删除。</p>
+</li>
+<li><p>不支持快速随机访问</p>
+</li>
+</ul>
+<blockquote>
+<p>Vector</p>
+</blockquote>
+<ul>
+<li>底层：Object[] 数组</li>
+<li>线程安全，效率低</li>
+</ul>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><blockquote>
+<p>HashSet</p>
+</blockquote>
+<ul>
+<li>无序，唯一</li>
+<li>底层基于HashMap</li>
+</ul>
+<blockquote>
+<p>TreeSet</p>
+</blockquote>
+<ul>
+<li>有序，唯一</li>
+<li>底层：基于红黑树实现</li>
+</ul>
+<blockquote>
+<p>LinkedHashSet</p>
+</blockquote>
+<ul>
+<li>无序，唯一</li>
+<li>底层：HashSet的子类，底层通过LinkedHashMap实现。</li>
+</ul>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><blockquote>
+<p>HashMap</p>
+</blockquote>
+<ul>
+<li><p>底层：1.8 之前，数组+链表，使用链表解决哈希冲突；1.8 开始，数组+链表+红黑树，当链表长度大于阈值（默认为8），且此时数组长度大于64，链表会被转化为红黑树，若此时数组长度不大于64，则会先选择对数组进行扩容。</p>
+</li>
+<li><p>线程不安全</p>
+</li>
+<li><p>支持null key和null value，null key 只能有一个，null value可以有多个</p>
+</li>
+</ul>
+<blockquote>
+<p>LinkedHashMap</p>
+</blockquote>
+<ul>
+<li>底层：继承自HashMap，底层仍然是数组+链表+红黑树，但是在此基础上添加了一条双向链表。</li>
+</ul>
+<blockquote>
+<p>HashTable</p>
+</blockquote>
+<ul>
+<li><p>底层：数组+链表，数组为主体，使用链表解决哈希冲突。</p>
+</li>
+<li><p>线程安全，加了synchronized修饰方法</p>
+</li>
+<li><p>出于线程安全，不允许null key和null value</p>
+</li>
+</ul>
+<h2 id="fali-fast、fail-safe机制"><a href="#fali-fast、fail-safe机制" class="headerlink" title="fali-fast、fail-safe机制"></a>fali-fast、fail-safe机制</h2><p>本质目的还是保证对集合的并发操作的安全性。</p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6941476861704667166">https://juejin.cn/post/6941476861704667166</a></p>
+<blockquote>
+<p>fail-fast</p>
+</blockquote>
+<p>什么是fail-fast：快速失败机制，<strong>在迭代时，如果发现 该集合数据 结构被改变 (modCount != expectedModCount)，就会 抛出 ConcurrentModificationException。</strong>是Java集合中的一种错误检测机制。单线程或多线程条件下，创建迭代器Iterator对集合进行遍历时，除了迭代器本身的方法（如remove()）可以对集合结构进行改变（如添加或删除）外，其他因素如果导致集合结构发生改变，就可能会抛出异常（ConcurrentModificationException）。</p>
+<p>fail-fast有什么好处：增强数据安全性。当多个线程对同一个集合进行高强度增删改查时，可能会出现数据异常。</p>
+<p>fail-fast如何实现：通过modCount（修改次数）实现。创建迭代器时，会为exceptedModCount赋值<code>int exceptedModCount = modCount</code>，用来记录当前修改次数。迭代器使用next()方法时，会调用checkForComodification()方法，在该方法中检查modCount与exceptedModCount是否相等。</p>
+<p>modCount何时会改变：对集合结构进行修改（添加或删除，修改值不算）时，modCount会+1。使用集合本身的方法或迭代器的方法对集合结构进行修改，modCount都会发生改变，而只有使用迭代器方法对集合结构进行修改，exceptedModCount才会发生改变。</p>
+<p>如果想避免fail-fast，可以使用CopyOnWriteArrayList代替Arraylist，其使用了fail-safe机制。</p>
+<blockquote>
+<p>fail-safe</p>
+</blockquote>
+<p>什么是safe-fast：安全失败机制。使用 <code>java.util.concurrent.ConcurrentHashMap</code>，无论改变值还是改变结构，都不会抛出 ConcurrentModificationException。</p>
+<p>fail-safe如何实现：在原集合的 copy 上遍历。存在两个问题：创建 copy 需要额外的空间和时间上的开销；不能保证遍历的是最新的内容。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/08/Git-Gitee%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" rel="prev" title="Git + Gitee（码云）使用手册">
+      <i class="fa fa-chevron-left"></i> Git + Gitee（码云）使用手册
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84"><span class="nav-number">1.3.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">1.4.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E3%80%81StringBuilder%E3%80%81StringBuffer%E5%BA%95%E5%B1%82%E5%8C%BA%E5%88%AB"><span class="nav-number">1.5.</span> <span class="nav-text">String、StringBuilder、StringBuffer底层区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BIO%E3%80%81NIO%E3%80%81AIO"><span class="nav-number">1.6.</span> <span class="nav-text">BIO、NIO、AIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object%E6%96%B9%E6%B3%95"><span class="nav-number">1.7.</span> <span class="nav-text">Object方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1"><span class="nav-number">1.8.</span> <span class="nav-text">自动拆箱与自动装箱</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E9%9B%86%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">Java集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">2.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">2.2.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">2.3.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fali-fast%E3%80%81fail-safe%E6%9C%BA%E5%88%B6"><span class="nav-number">2.4.</span> <span class="nav-text">fali-fast、fail-safe机制</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="For-Sea"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">For-Sea</p>
+  <div class="site-description" itemprop="description">四海的草稿箱</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">For-Sea</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
